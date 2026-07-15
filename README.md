@@ -200,7 +200,7 @@ If you use this code, please cite the paper:
 @inproceedings{text2bt2026,
   title     = {Text2BT: A Baseline Study on LLM-Agent-Based Behavior-Tree
                Generation for Game Character AI},
-  author    = {Ito, Ray and Jimbo, Naoyuki and Ihara, Koya}
+  author    = {Ito, Ray and Jimbo, Naoyuki and Ihara, Koya},
   booktitle = {Proceedings of the IEEE Conference on Games (CoG)},
   year      = {2026}
 }
