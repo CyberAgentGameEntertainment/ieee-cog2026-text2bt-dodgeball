@@ -1,0 +1,9 @@
+## Requirement
+
+The user will tell you what Behavior Tree they want.
+Implement Behavior Tree for the player character that follows the user's order.
+
+You need to:
+1. Read the codebase to map what is written in where.
+2. Understand the game mechanics through the codes.
+3. Design a behavior tree with natural language.

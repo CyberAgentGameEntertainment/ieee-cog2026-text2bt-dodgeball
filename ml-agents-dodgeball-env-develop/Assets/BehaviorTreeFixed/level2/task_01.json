@@ -1,0 +1,8 @@
+{
+  "type": "StartTurn",
+  "params": {
+    "direction": "left",
+    "seconds": null,
+    "maxDegree": null
+  }
+}

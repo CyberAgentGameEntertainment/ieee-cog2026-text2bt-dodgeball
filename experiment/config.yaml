@@ -1,0 +1,63 @@
+# Experiment Configuration
+# This file can be extended for future use to store experiment parameters
+
+experiment:
+  # Default experiment settings
+  default_level: 1
+  default_newnode: false
+  default_newbt: true
+  
+  # Output settings
+  results_dir: "results"
+  
+  # Task selection
+  # all_tasks: Run all tasks from raw.md
+  # specific_tasks: List specific task numbers
+  task_mode: "all_tasks"
+  specific_tasks: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  
+  # Execution settings
+  dry_run: false
+  verbose: true
+
+# Planned experiment configurations
+experiments:
+  - name: "level1_no_newnode"
+    level: 1
+    newnode: false
+    newbt: true
+    temperature: 1.0
+    num_repeats: 1
+    model: "gpt"
+
+  - name: "level1_with_newnode"
+    level: 1
+    newnode: true
+    newbt: true
+    temperature: 1.0
+    num_repeats: 1
+    model: "gpt"
+
+  - name: "level2_no_newnode"
+    level: 2
+    newnode: false
+    newbt: true
+    temperature: 1.0
+    num_repeats: 1
+    model: "gpt"
+
+  - name: "level2_with_newnode"
+    level: 2
+    newnode: true
+    newbt: true
+    temperature: 1.0
+    num_repeats: 1
+    model: "gpt"
+
+  - name: "level1_no_newnode_repeat10"
+    level: 1
+    newnode: false
+    newbt: true
+    temperature: 1.0
+    num_repeats: 10
+    model: "gpt"

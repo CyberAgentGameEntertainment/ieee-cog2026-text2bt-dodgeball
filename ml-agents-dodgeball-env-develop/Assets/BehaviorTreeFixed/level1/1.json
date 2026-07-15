@@ -1,0 +1,42 @@
+{
+  "type": "Selector",
+  "params": {
+    "children": [
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "Not",
+            "params": {
+              "condition": {
+                "type": "IfTurning",
+                "params": {}
+              }
+            }
+          },
+          "childTrue": {
+            "type": "StartTurn",
+            "params": {
+              "direction": "left",
+              "seconds": null,
+              "maxDegree": null
+            }
+          }
+        }
+      },
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "IfTurning",
+            "params": {}
+          },
+          "childTrue": {
+            "type": "DoNothing",
+            "params": {}
+          }
+        }
+      }
+    ]
+  }
+}

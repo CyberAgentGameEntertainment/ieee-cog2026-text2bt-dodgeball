@@ -1,0 +1,2 @@
+# Keep results directory in git but ignore specific result files
+/results/**

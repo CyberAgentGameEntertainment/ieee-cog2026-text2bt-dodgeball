@@ -1,0 +1,130 @@
+{
+  "type": "Selector",
+  "params": {
+    "children": [
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "And",
+            "params": {
+              "conditions": [
+                {
+                  "type": "AtFront",
+                  "params": {
+                    "target": "Enemy",
+                    "distance": null
+                  }
+                },
+                {
+                  "type": "BallsMoreThanOrEquals",
+                  "params": {
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          },
+          "childTrue": {
+            "type": "Throw",
+            "params": {}
+          }
+        }
+      },
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "And",
+            "params": {
+              "conditions": [
+                {
+                  "type": "BallsMoreThanOrEquals",
+                  "params": {
+                    "number": 3
+                  }
+                },
+                {
+                  "type": "InVisual",
+                  "params": {
+                    "target": "Enemy",
+                    "distance": null
+                  }
+                }
+              ]
+            }
+          },
+          "childTrue": {
+            "type": "Sequence",
+            "params": {
+              "children": [
+                {
+                  "type": "StartTurnTowards",
+                  "params": {
+                    "target": "Enemy",
+                    "seconds": null
+                  }
+                },
+                {
+                  "type": "StartRunTowards",
+                  "params": {
+                    "target": "Enemy",
+                    "degree": 90.0,
+                    "seconds": null
+                  }
+                }
+              ],
+              "repeat": true
+            }
+          }
+        }
+      },
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "And",
+            "params": {
+              "conditions": [
+                {
+                  "type": "InVisual",
+                  "params": {
+                    "target": "BallDropped",
+                    "distance": null
+                  }
+                },
+                {
+                  "type": "Not",
+                  "params": {
+                    "condition": {
+                      "type": "BallsMoreThanOrEquals",
+                      "params": {
+                        "number": 4
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "childTrue": {
+            "type": "StartRunTowards",
+            "params": {
+              "target": "BallDropped",
+              "degree": 0.0,
+              "seconds": null
+            }
+          }
+        }
+      },
+      {
+        "type": "StartTurn",
+        "params": {
+          "direction": "right",
+          "seconds": null,
+          "maxDegree": null
+        }
+      }
+    ]
+  }
+}

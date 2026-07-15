@@ -1,0 +1,103 @@
+{
+  "type": "Selector",
+  "params": {
+    "children": [
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "Not",
+            "params": {
+              "condition": {
+                "type": "InVisual",
+                "params": {
+                  "target": "Enemy",
+                  "distance": null
+                }
+              }
+            }
+          },
+          "childTrue": {
+            "type": "Sequence",
+            "params": {
+              "repeat": true,
+              "children": [
+                {
+                  "type": "StopRun",
+                  "params": {}
+                },
+                {
+                  "type": "StartTurn",
+                  "params": {
+                    "direction": "left",
+                    "seconds": null,
+                    "maxDegree": null
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "InVisual",
+            "params": {
+              "target": "Enemy",
+              "distance": 5.0
+            }
+          },
+          "childTrue": {
+            "type": "StartRunTowards",
+            "params": {
+              "target": "Enemy",
+              "degree": -90.0,
+              "seconds": null
+            }
+          }
+        }
+      },
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "InVisual",
+            "params": {
+              "target": "Enemy",
+              "distance": null
+            }
+          },
+          "childTrue": {
+            "type": "Sequence",
+            "params": {
+              "repeat": true,
+              "children": [
+                {
+                  "type": "StartTurnTowards",
+                  "params": {
+                    "target": "Enemy",
+                    "seconds": null
+                  }
+                },
+                {
+                  "type": "StartRunTowards",
+                  "params": {
+                    "target": "Enemy",
+                    "degree": 0.0,
+                    "seconds": null
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "DoNothing",
+        "params": {}
+      }
+    ]
+  }
+}

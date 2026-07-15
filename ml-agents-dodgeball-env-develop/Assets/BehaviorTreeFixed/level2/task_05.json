@@ -1,0 +1,35 @@
+{
+  "type": "Selector",
+  "params": {
+    "children": [
+      {
+        "type": "Selector",
+        "params": {
+          "children": [
+            {
+              "type": "Condition",
+              "params": {
+                "evaluator": {
+                  "type": "And",
+                  "params": {
+                    "conditions": [
+                      { "type": "And", "params": { "conditions": [] } },
+                      { "type": "And", "params": { "conditions": [] } },
+                      { "type": "And", "params": { "conditions": [] } }
+                    ]
+                  }
+                },
+                "childTrue": {
+                  "type": "Selector",
+                  "params": {
+                    "children": []
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

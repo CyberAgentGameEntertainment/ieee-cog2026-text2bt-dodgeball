@@ -1,0 +1,30 @@
+**Behavior Tree Plan**
+
+The user wants a behavior tree with the following priorities:
+1.  **Attack**: If an enemy is at the front and the agent has a ball, throw it.
+2.  **Orbit**: If the agent has at least 3 balls and an enemy is in sight, orbit the enemy to the left.
+3.  **Collect**: If a dropped ball is visible and the agent has less than 4 balls, run to it.
+4.  **Search**: If none of the above conditions are met, rotate clockwise.
+
+I will structure this using a `Selector` node at the root, which will try each of these behaviors in order.
+
+*   **Root: Selector**
+    *   **Child 1: Attack (Condition)**
+        *   **Evaluator**: `And`
+            *   `AtFront` (target: "Enemy")
+            *   `BallsMoreThanOrEquals` (number: 1)
+        *   **childTrue**: `Throw`
+    *   **Child 2: Orbit (Condition)**
+        *   **Evaluator**: `And`
+            *   `InVisual` (target: "Enemy")
+            *   `BallsMoreThanOrEquals` (number: 3)
+        *   **childTrue**: `Sequence`
+            *   `StartTurnTowards` (target: "Enemy")
+            *   `StartRunTowards` (target: "Enemy", degree: 90)
+    *   **Child 3: Collect (Condition)**
+        *   **Evaluator**: `And`
+            *   `InVisual` (target: "BallDropped")
+            *   `Not` (`BallsMoreThanOrEquals` (number: 4))
+        *   **childTrue**: `StartRunTowards` (target: "BallDropped", degree: 0)
+    *   **Child 4: Search (Action)**
+        *   **Action**: `StartTurn` (direction: "right")

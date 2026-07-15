@@ -1,0 +1,137 @@
+{
+  "type": "Selector",
+  "params": {
+    "children": [
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "And",
+            "params": {
+              "conditions": [
+                {
+                  "type": "BallsMoreThanOrEquals",
+                  "params": {
+                    "number": 1
+                  }
+                },
+                {
+                  "type": "AtFront",
+                  "params": {
+                    "target": "Enemy",
+                    "distance": null
+                  }
+                }
+              ]
+            }
+          },
+          "childTrue": {
+            "type": "Throw",
+            "params": {}
+          }
+        }
+      },
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "Not",
+            "params": {
+              "condition": {
+                "type": "InVisual",
+                "params": {
+                  "target": "Enemy",
+                  "distance": null
+                }
+              }
+            }
+          },
+          "childTrue": {
+            "type": "Sequence",
+            "params": {
+              "children": [
+                {
+                  "type": "StopRun",
+                  "params": {}
+                },
+                {
+                  "type": "StartTurn",
+                  "params": {
+                    "direction": "left",
+                    "seconds": null,
+                    "maxDegree": null
+                  }
+                }
+              ],
+              "repeat": false
+            }
+          }
+        }
+      },
+      {
+        "type": "Sequence",
+        "params": {
+          "children": [
+            {
+              "type": "StartTurnTowards",
+              "params": {
+                "target": "Enemy",
+                "seconds": null
+              }
+            },
+            {
+              "type": "StartRun",
+              "params": {
+                "degree": 90.0,
+                "seconds": 0.5
+              }
+            },
+            {
+              "type": "StartTurnTowards",
+              "params": {
+                "target": "Enemy",
+                "seconds": null
+              }
+            },
+            {
+              "type": "StartRun",
+              "params": {
+                "degree": 0.0,
+                "seconds": 0.5
+              }
+            },
+            {
+              "type": "StartTurnTowards",
+              "params": {
+                "target": "Enemy",
+                "seconds": null
+              }
+            },
+            {
+              "type": "StartRun",
+              "params": {
+                "degree": 270.0,
+                "seconds": 0.5
+              }
+            },
+            {
+              "type": "StartTurnTowards",
+              "params": {
+                "target": "Enemy",
+                "seconds": null
+              }
+            },
+            {
+              "type": "StartRun",
+              "params": {
+                "degree": 180.0,
+                "seconds": 0.5
+              }
+            }
+          ],
+          "repeat": true
+        }
+      }
+    ]
+  }
+}

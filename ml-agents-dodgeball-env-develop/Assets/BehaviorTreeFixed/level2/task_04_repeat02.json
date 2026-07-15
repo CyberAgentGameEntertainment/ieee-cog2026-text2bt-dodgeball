@@ -1,0 +1,118 @@
+{
+  "type": "Selector",
+  "params": {
+    "children": [
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "Or",
+            "params": {
+              "conditions": [
+                {
+                  "type": "InVisual",
+                  "params": {
+                    "target": "BallDropped",
+                    "distance": null
+                  }
+                },
+                {
+                  "type": "InVisual",
+                  "params": {
+                    "target": "BallThrownByEnemy",
+                    "distance": null
+                  }
+                }
+              ]
+            }
+          },
+          "childTrue": {
+            "type": "Selector",
+            "params": {
+              "children": [
+                {
+                  "type": "Condition",
+                  "params": {
+                    "evaluator": {
+                      "type": "InVisual",
+                      "params": {
+                        "target": "BallDropped",
+                        "distance": null
+                      }
+                    },
+                    "childTrue": {
+                      "type": "Sequence",
+                      "params": {
+                        "repeat": true,
+                        "children": [
+                          {
+                            "type": "StartTurnTowards",
+                            "params": {
+                              "target": "BallDropped",
+                              "seconds": null
+                            }
+                          },
+                          {
+                            "type": "StartRunTowards",
+                            "params": {
+                              "target": "BallDropped",
+                              "degree": 0.0,
+                              "seconds": null
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "Sequence",
+                  "params": {
+                    "repeat": true,
+                    "children": [
+                      {
+                        "type": "StartTurnTowards",
+                        "params": {
+                          "target": "BallThrownByEnemy",
+                          "seconds": null
+                        }
+                      },
+                      {
+                        "type": "StartRunTowards",
+                        "params": {
+                          "target": "BallThrownByEnemy",
+                          "degree": 0.0,
+                          "seconds": null
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "Sequence",
+        "params": {
+          "repeat": true,
+          "children": [
+            {
+              "type": "StopRun",
+              "params": {}
+            },
+            {
+              "type": "StartTurn",
+              "params": {
+                "direction": "left",
+                "seconds": null,
+                "maxDegree": null
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

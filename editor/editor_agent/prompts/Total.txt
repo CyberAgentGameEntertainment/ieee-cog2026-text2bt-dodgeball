@@ -1,0 +1,18 @@
+## Requirement
+
+The user will tell you what Behavior Tree they want.
+Implement Behavior Tree for the player character that properly plays the game.
+
+You need to:
+1. Read the codebase to map what is written in where.
+2. Understand the game mechanics through the codes.
+3. Design a behavior tree with natural language.
+4. Implement the C# code of new nodes of behavior tree you defined in step 3.
+5. Implement the behavior tree structure JSON file.
+
+## Constraints
+- The files you are allowed to edit are limited in Assets/BehaviorTree/ directory
+- Implement the actual movement and condition in the nodes.
+- You cannnot interact with the user. You are required to keep working until you write the JSON file without asking anything to the user.
+- Do not stop editing codes until there is no compilation error left.
+- Do not stop editing behavior tree JSON until there is no deserialization error left. You can observe spec of deserialization from `BehaviorTree.Serializations` namespace.

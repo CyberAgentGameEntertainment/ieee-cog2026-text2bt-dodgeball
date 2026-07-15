@@ -1,0 +1,9 @@
+- startRunning (boolean, float)
+    - float refers to the angle (deg) to run towards where positive is anti-clockwise
+- endRunning (boolean)
+- startTurning (boolean, float)
+    - float refers to the angle speed (deg/sec) where positive is anti-clockwise
+- endTurning(boolean)
+- throwBall(boolean)
+- turnInstantly(boolean, float)
+    - float refers to the angle turning (deg) where positive is anti-clockwise

@@ -1,0 +1,97 @@
+{
+  "tasks": [
+    {
+      "name": "Idle Spinner",
+      "level1_prompt": "* Select one movement\n  * if not turning  \n    * Start rotating to left forever\n  * if turning\n    * Do nothing",
+      "level2_prompt": [
+        "Keep always rotating leftwards."
+      ]
+    },
+    {
+      "name": "Ball Chaser",
+      "level1_prompt": "* Select one movement  \n  * if a ball is visible  \n    * Start run towards the ball 0 degrees  \n  * Stop running",
+      "level2_prompt": [
+        "If you see a ball, run towards it\nIf you do not see a ball, stop and dont move",
+        "If you do not see a ball, stop and dont move\nIf you see a ball, run towards it"
+      ]
+    },
+    {
+      "name": "Trolling",
+      "level1_prompt": "* Selector  \n  * If you can see an enemy\n    * Sequence\n      * Start turning towards the enemy\n      * Start Run towards the enemy\n      * if the enemy is at front by 5.0 distance\n        * Start running 90 degrees right\n  * If running\n    * Stop running\n  * Start rotate anti-clockwise",
+      "level2_prompt": [
+        "If not seeing an enemy, dont run and rotate anti-clockwise\nif you see an enemy, keep look and run towards it.\nIf you see an enemy and the distance is within 5.0, keep run right side relative to the enemy",
+        "If not seeing an enemy, dont run and rotate anti-clockwise\nIf you see an enemy and the distance is within 5.0, keep run right side relative to the enemy\nif you see an enemy, keep look and run towards it.",
+        "if you see an enemy, keep look and run towards it.\nIf you see an enemy and the distance is within 5.0, keep run right side relative to the enemy\nIf not seeing an enemy, dont run and rotate anti-clockwise",
+        "if you see an enemy, keep look and run towards it.\nIf not seeing an enemy, dont run and rotate anti-clockwise\nIf you see an enemy and the distance is within 5.0, keep run right side relative to the enemy"
+      ]
+    },
+    {
+      "name": "Basic Collector",
+      "level1_prompt": "* Select one movement  \n  * if a ball is visible  \n    * Do these in this sequence.\n      * Start run towards the ball\n      * Start turn towards the ball\n  * if running  \n    * Stop running\n  * Start rotating left",
+      "level2_prompt": [
+        "If you see a ball, keep look and run towards the ball.\nIf not seeing a ball, rotate leftwards and dont run.",
+        "If not seeing a ball, rotate leftwards and dont run.\nIf you see a ball, keep look and run towards the ball."
+      ]
+    },
+    {
+      "name": "Standard Bot Strategy",
+      "level1_prompt": "* Select one movement  \n  * if holding at least 1 balls AND if enemy is in sight (attack)\n    * Do these in order  \n      * Rotate towards the enemy  \n      * If enemy at front\n        * Throw a ball  \n  * if a ball is visible AND NOT holding four balls (Collection)\n    * Do these in order  \n      * Stop rotating\n      * Start run towards the ball 0 degrees  \n  * Start rotating anti-clockwise (Search)",
+      "level2_prompt": [
+        "If you can see a ball and you have less than 4 balls, run to the ball. (collect)\nIf there is nothing to do, rotate anti-clockwise (search)\nIf you have at least one ball and you can see the enemy, keep looking at the enemy, then throw the ball if it is at front of you. (attack)\nPriotize attack more than collect.",
+        "If you have at least one ball and you can see the enemy, keep looking at the enemy, then throw the ball if it is at front of you. (attack)\nIf you can see a ball and you have less than 4 balls, run to the ball. (collect)\nPriotize attack more than collect.\nIf there is nothing to do, rotate anti-clockwise (search)",
+        "If there is nothing to do, rotate anti-clockwise (search)\nIf you have at least one ball and you can see the enemy, keep looking at the enemy, then throw the ball if it is at front of you. (attack)\nIf you can see a ball and you have less than 4 balls, run to the ball. (collect)\nPriotize attack more than collect.",
+        "If you can see a ball and you have less than 4 balls, run to the ball. (collect)\nIf there is nothing to do, rotate anti-clockwise (search)\nPriotize attack more than collect.\nIf you have at least one ball and you can see the enemy, keep looking at the enemy, then throw the ball if it is at front of you. (attack)"
+      ]
+    },
+    {
+      "name": "Strafe shooting",
+      "level1_prompt": "* Select one movement\n  * if enemy is in sight\n    * do these in order\n      * Start turn towards the enemy\n      * Select one movement\n        * if have at least 1 ball AND enemy at front\n          * Throw a ball\n        * Repeat these in this order\n          * Start Running towards 90 degrees left for 0.5 seconds\n          * Do nothing\n          * if not running\n            * Start Running forward for 0.5 seconds\n          * Do nothing\n          * if not running\n            * Start Running towards 90 degrees right for 0.5 seconds\n          * Do nothing\n          * if not running\n            * Start Running backwards for 0.5 seconds\n          * Do nothing\n          * if not running\n            * Do nothing\n  * if running\n    * Stop running\n  * Start rotating left",
+      "level2_prompt": [
+        "If you have a ball and the enemy is at front of you, throw the ball. (Attack)\nIf you cannot see an enemy, stop running and rotate leftwards.\nIf you can see the enemy, keep looking at the enemy and strafing. Strafing is to move left, forward, right, back 0.5 seconds each.",
+        "If you have a ball and the enemy is at front of you, throw the ball. (Attack)\nIf you can see the enemy, keep looking at the enemy and strafing. Strafing is to move left, forward, right, back 0.5 seconds each.\nIf you cannot see an enemy, stop running and rotate leftwards.",
+        "If you can see the enemy, keep looking at the enemy and strafing. Strafing is to move left, forward, right, back 0.5 seconds each.\nIf you have a ball and the enemy is at front of you, throw the ball. (Attack)\nIf you cannot see an enemy, stop running and rotate leftwards.",
+        "If you cannot see an enemy, stop running and rotate leftwards.\nIf you have a ball and the enemy is at front of you, throw the ball. (Attack)\nIf you can see the enemy, keep looking at the enemy and strafing. Strafing is to move left, forward, right, back 0.5 seconds each."
+      ]
+    },
+    {
+      "name": "Aggressive Duelist",
+      "level1_prompt": "* Select one movement  \n  * if enemy is at front by 7.0 AND holding at least 1 ball. \n        * Throw a ball  \n  * if holding at least 3 balls AND enemy is in sight (Combat)  \n      * Do these in order  \n        * Turn towards the enemy\n        * Start run towards the enemy 0 degrees\n  * if a ball is visible AND NOT holding four balls (Reload)  \n    * Do these in order  \n      * Turn towards the ball\n      * Start run towards the ball 0 degrees\n  * if running\n    * Stop running\n  * Start rotating clockwise (Search Ball or enemy)",
+      "level2_prompt": [
+        "If you can see a dropped ball and not having 4 balls, look and go to the ball. (Collection)\nif nothing to do, stop running and rotate clockwise (searching)\nIf having more or equal to 3 balls and enemy is in sight, keep looking and intercepting at the enemy (Intercept)\nthe priority is \"attack > intercept > collection > searching\"\nIf the enemy is at front and the distance is within 7.0 and you have at least a single ball, throw it. (Attack)",
+        "if nothing to do, stop running and rotate clockwise (searching)\nthe priority is \"attack > intercept > collection > searching\"\nIf the enemy is at front and the distance is within 7.0 and you have at least a single ball, throw it. (Attack)\nIf you can see a dropped ball and not having 4 balls, look and go to the ball. (Collection)\nIf having more or equal to 3 balls and enemy is in sight, keep looking and intercepting at the enemy (Intercept)",
+        "If the enemy is at front and the distance is within 7.0 and you have at least a single ball, throw it. (Attack)\nif nothing to do, stop running and rotate clockwise (searching)\nIf you can see a dropped ball and not having 4 balls, look and go to the ball. (Collection)\nIf having more or equal to 3 balls and enemy is in sight, keep looking and intercepting at the enemy (Intercept)\nthe priority is \"attack > intercept > collection > searching\"",
+        "the priority is \"attack > intercept > collection > searching\"\nIf the enemy is at front and the distance is within 7.0 and you have at least a single ball, throw it. (Attack)\nif nothing to do, stop running and rotate clockwise (searching)\nIf having more or equal to 3 balls and enemy is in sight, keep looking and intercepting at the enemy (Intercept)\nIf you can see a dropped ball and not having 4 balls, look and go to the ball. (Collection)"
+      ]
+    },
+    {
+      "name": "Tactical Turret",
+      "level1_prompt": "* Select one movement  \n  * if enemy is at front AND have at least one ball AND not running\n    * Throw a ball  \n  * if holding more than 3 balls  \n    * do these in order  \n      * Stop running\n      * Start rotating anti-clockwise  \n  * if a ball is visible and NOT holding more than 3 balls \n    * Do these in order  \n      * Stop rotating\n      * Start run towards the ball\n  * Do these in order  \n    * Stop running\n    * Start rotating clockwise",
+      "level2_prompt": [
+        "If an enemy is at front and holding any ball and not running, throw it. (Attack)\nPrioritize attacking first\nIf a dropped ball visible and not holding more than 3 balls, run to the ball. (Collection)\nIf holding more than three balls, dont run and rotate anti-clockwise (Turret movement)\nIf nothing to do, rotate clockwise (Search)",
+        "If an enemy is at front and holding any ball and not running, throw it. (Attack)\nIf holding more than three balls, dont run and rotate anti-clockwise (Turret movement)\nIf a dropped ball visible and not holding more than 3 balls, run to the ball. (Collection)\nIf nothing to do, rotate clockwise (Search)\nPrioritize attacking first",
+        "If an enemy is at front and holding any ball and not running, throw it. (Attack)\nIf nothing to do, rotate clockwise (Search)\nPrioritize attacking first\nIf a dropped ball visible and not holding more than 3 balls, run to the ball. (Collection)\nIf holding more than three balls, dont run and rotate anti-clockwise (Turret movement)",
+        "If a dropped ball visible and not holding more than 3 balls, run to the ball. (Collection)\nIf an enemy is at front and holding any ball and not running, throw it. (Attack)\nIf nothing to do, rotate clockwise (Search)\nPrioritize attacking first\nIf holding more than three balls, dont run and rotate anti-clockwise (Turret movement)"
+      ]
+    },
+    {
+      "name": "Hit and Run",
+      "level1_prompt": "* Selector\n  * if enemy is at front by 7.0 distance AND have at least one ball  \n    * Throw a ball  \n  * if holding at least 2 balls AND enemy is in sight (Hit and Run)\n    * sequence\n      * Rotate towards the enemy\n      * Run towards the enemy\n  * If enemy is in sight within 15.0 distance\n    * Start run 180 degrees towards the enemy  \n  * if a ball is visible AND holding less than four balls (Collection)\n    * Do these in order \n      * Stop rotating\n      * Start run towards the ball 0 degrees  \n  * Start rotating clockwise",
+      "level2_prompt": [
+        "If you have at least 2 balls and the enemy visuable, keep look and run at the enemy\nif the enemy is visuable and it's near than 15.0 but you dont have more than a single ball, run backwards\nif nothing to do, rotate clockwise\nthe priority of ball collection is lower than others\nIf the enemy is at front within 7.0 and you have a ball, throw it.\nif you can see a ball and you are holding less than four balls, go get it",
+        "If you have at least 2 balls and the enemy visuable, keep look and run at the enemy\nif nothing to do, rotate clockwise\nif the enemy is visuable and it's near than 15.0 but you dont have more than a single ball, run backwards\nif you can see a ball and you are holding less than four balls, go get it\nIf the enemy is at front within 7.0 and you have a ball, throw it.\nthe priority of ball collection is lower than others",
+        "If the enemy is at front within 7.0 and you have a ball, throw it.\nif the enemy is visuable and it's near than 15.0 but you dont have more than a single ball, run backwards\nIf you have at least 2 balls and the enemy visuable, keep look and run at the enemy\nthe priority of ball collection is lower than others\nif you can see a ball and you are holding less than four balls, go get it\nif nothing to do, rotate clockwise",
+        "If you have at least 2 balls and the enemy visuable, keep look and run at the enemy\nif you can see a ball and you are holding less than four balls, go get it\nif nothing to do, rotate clockwise\nIf the enemy is at front within 7.0 and you have a ball, throw it.\nif the enemy is visuable and it's near than 15.0 but you dont have more than a single ball, run backwards\nthe priority of ball collection is lower than others"
+      ]
+    },
+    {
+      "name": "The Satellite (Orbiter)",
+      "level1_prompt": "* Select one movement\n  * if enemy at front AND have at least one ball  \n    * Throw a ball\n  * if holding at least 3 balls AND enemy in sight (Orbit Combat)  \n    * Do these in order  \n      * Start turn towards the enemy  \n      * Start run 90 degrees left relative to the enemy (Circle Strafe)  \n  * if a ball is visible AND holding less than four balls (Collection)\n    * Do these in order \n      * Stop rotating\n      * Start run towards the ball 0 degrees  \n  * Start rotating clockwise",
+      "level2_prompt": [
+        "If you can see a dropped ball and have less than 4 balls, run to it. (Collection)\nThe priority is Attack > Orbit movement > Collection > Search\nIf you have at least 3 balls and the enemy is in sight, go around the enemy leftwards while looking at it. (Orbit movement)\nRotate clockwise (Search)\nIf enemy at fron and you have a ball, throw it. (Attack)",
+        "The priority is Attack > Orbit movement > Collection > Search\nIf enemy at fron and you have a ball, throw it. (Attack)\nIf you have at least 3 balls and the enemy is in sight, go around the enemy leftwards while looking at it. (Orbit movement)\nRotate clockwise (Search)\nIf you can see a dropped ball and have less than 4 balls, run to it. (Collection)",
+        "If you can see a dropped ball and have less than 4 balls, run to it. (Collection)\nIf enemy at fron and you have a ball, throw it. (Attack)\nIf you have at least 3 balls and the enemy is in sight, go around the enemy leftwards while looking at it. (Orbit movement)\nRotate clockwise (Search)\nThe priority is Attack > Orbit movement > Collection > Search",
+        "If enemy at fron and you have a ball, throw it. (Attack)\nRotate clockwise (Search)\nIf you have at least 3 balls and the enemy is in sight, go around the enemy leftwards while looking at it. (Orbit movement)\nIf you can see a dropped ball and have less than 4 balls, run to it. (Collection)\nThe priority is Attack > Orbit movement > Collection > Search"
+      ]
+    }
+  ]
+}

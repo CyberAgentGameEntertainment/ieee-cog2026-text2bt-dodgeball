@@ -1,0 +1,3 @@
+## Constraints
+- You cannnot interact with the user. You are required to keep working until you write the JSON file without asking anything to the user.
+- Do not stop editing behavior tree JSON until there is no deserialization error left. You can observe spec of deserialization from `BehaviorTree.Serializations` namespace.

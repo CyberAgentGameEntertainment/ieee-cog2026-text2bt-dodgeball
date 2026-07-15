@@ -1,0 +1,82 @@
+{
+  "type": "Selector",
+  "params": {
+    "children": [
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "InVisual",
+            "params": {
+              "target": "Enemy",
+              "distance": null
+            }
+          },
+          "childTrue": {
+            "type": "Sequence",
+            "params": {
+              "children": [
+                {
+                  "type": "StartTurnTowards",
+                  "params": {
+                    "target": "Enemy",
+                    "seconds": null
+                  }
+                },
+                {
+                  "type": "StartRunTowards",
+                  "params": {
+                    "target": "Enemy",
+                    "degree": 0.0,
+                    "seconds": null
+                  }
+                },
+                {
+                  "type": "Condition",
+                  "params": {
+                    "evaluator": {
+                      "type": "AtFront",
+                      "params": {
+                        "target": "Enemy",
+                        "distance": 5.0
+                      }
+                    },
+                    "childTrue": {
+                      "type": "StartRun",
+                      "params": {
+                        "degree": -90.0,
+                        "seconds": null
+                      }
+                    }
+                  }
+                }
+              ],
+              "repeat": false
+            }
+          }
+        }
+      },
+      {
+        "type": "Condition",
+        "params": {
+          "evaluator": {
+            "type": "IfRunning",
+            "params": {}
+          },
+          "childTrue": {
+            "type": "StopRun",
+            "params": {}
+          }
+        }
+      },
+      {
+        "type": "StartTurn",
+        "params": {
+          "direction": "left",
+          "seconds": null,
+          "maxDegree": null
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,2 @@
+- Implement the actual movement and condition in the nodes.
+- Do not stop editing codes until there is no compilation error left.
