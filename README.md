@@ -4,7 +4,7 @@ This repository accompanies the paper:
 
 > **Text2BT: A Baseline Study on LLM-Agent-Based Behavior-Tree Generation for
 > Game Character AI**
-> _Submitted to IEEE Conference on Games (CoG) 2026._
+> _in IEEE Conference on Games (CoG) 2026._
 
 Text2BT is an LLM-agent pipeline that turns a natural-language instruction into a
 runnable **behavior tree (BT)** for a game character. The generated trees drive
